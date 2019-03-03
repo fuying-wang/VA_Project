@@ -37,9 +37,11 @@ def accuracy(output, target, topk=(1,)):
     return res
 
 def save_checkpoint(model, output_path):
+
     ## if not os.path.exists(output_dir):
     ##    os.makedirs("model/")
     torch.save(model.state_dict(), output_path)
+
     print("Checkpoint saved to {}".format(output_path))
 
 

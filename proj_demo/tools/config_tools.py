@@ -34,11 +34,11 @@ usage:
 class Config(object):
     def __init__(self, config):
         stream = open(config,'r')
-        docs = yaml.load_all(stream)
+        docs = yaml.load_all(stream)  #生成迭代器
         for doc in docs:
-            for k, v in doc.items():
-                cmd = "self." + k + "=" + repr(v)
-                print(cmd)
-                exec(cmd)
+            for k, v in doc.items():  #字典的便利
+                cmd = "self." + k + "=" + repr(v)  #转化为供解释器读取的字符串  eg:self.max_iter=5000
+                print(cmd)  
+                exec(cmd)             #执行字符串中的代码
 
         stream.close()
